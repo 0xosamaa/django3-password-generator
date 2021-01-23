@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+		<title>Password Generator</title>
+	</head>
+	<body>
+        <div class="container text-center">
+            <h1>Password Generator</h1>
+            <form action="{% url 'password' %}">
+                <select name="length">
+                    {% for i in range %}
+                    {% if i == 12 %}
+                    <option value="{{i}}" selected>{{i}}</option>
+                    {% else %}
+                    <option value="{{i}}">{{i}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                Length
+                <br>
+                <input type="checkbox" name="uppercase">
+                <label for="uppercase">Uppercase</label>
+                <br>
+                <input type="checkbox" name="numbers">
+                <label for="numbers">Numbers</label>
+                <br>
+                <input type="checkbox" name="special">
+                <label for="special">Special Characters</label>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Generate Password"></button>
+            </form>
+            <!-- <a class="btn btn-primary" href="{% url 'about' %}">About</a> -->
+        </div>
+	</body>
+</html>
